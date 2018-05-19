@@ -1,0 +1,7 @@
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\bin\Debug\Homework01.exe.config
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\bin\Debug\Homework01.exe
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\bin\Debug\Homework01.pdb
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\obj\Debug\Homework01.csprojAssemblyReference.cache
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\obj\Debug\Homework01.csproj.CoreCompileInputs.cache
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\obj\Debug\Homework01.exe
+C:\Users\Ionut\source\repos\new\Module01Week01\Homework01\obj\Debug\Homework01.pdb
