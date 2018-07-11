@@ -22,10 +22,3 @@ namespace Homework01.Models
         Photo
     }
 }
-// Id(int)
-// UserId(int)
-// TimeOfPosting(DateTime)
-// Message(string)
-// PostType(Enum with 2 values: Text and Photo)
-// IsSticky(bool)
-// Priority(int – optional with values ranging from 1 to 5)

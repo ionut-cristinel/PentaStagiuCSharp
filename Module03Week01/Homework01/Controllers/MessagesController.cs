@@ -28,6 +28,18 @@ namespace Homework01.Controllers
                 return View(message);
         }
 
+        [HttpGet]
+        public ActionResult Delete(long id)
+        {
+            Message message = Messages.Find(m => m.Id == id);
+            if (message == null)
+                return HttpNotFound();
+            else
+            {
+                return View(message);
+            }
+        }
+
         [HttpPost]
         public ActionResult Delete(int id)
         {
@@ -40,30 +52,6 @@ namespace Homework01.Controllers
                 return RedirectToAction("Index");
             }
         }
-
-
-        //  partea de edit prezinta inca erori
-        //  ---------- ^ ---------  // 
-        [HttpGet]
-        public ActionResult Edit()
-        {
-            return View();
-        }
-
-        [HttpPost]
-        public ActionResult Edit(int id)
-        {
-            Message message = Messages.Find(m => m.Id == id);
-            if (message == null)
-                return HttpNotFound();
-            else
-            {
-                var index = id - 1;
-                Messages[index] = message;
-                return RedirectToAction("Index");
-            }
-        }
-        //  ---------- ^ ---------  //
 
         [HttpGet]
         public ActionResult Create()
@@ -79,7 +67,6 @@ namespace Homework01.Controllers
             message.Id = Id;
             message.TimeOfPosting = DateTime.Now.Date;
             message.UserId = random.Next(1, 100);
-            message.PostType = (PostType)random.Next(0, 1);
             Messages.Add(message);
             return RedirectToAction("Index");
         }
