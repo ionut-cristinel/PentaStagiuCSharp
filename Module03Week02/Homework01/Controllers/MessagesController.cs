@@ -15,6 +15,7 @@ namespace Homework01.Controllers
         // GET: Messages
         public ActionResult Index()
         {
+            ViewBag.PageCreateDate = DateTime.Now.Date;
             return View(Messages);
         }
 
@@ -24,8 +25,8 @@ namespace Homework01.Controllers
             Message message = Messages.Find(m => m.Id == id);
             if (message == null)
                 return HttpNotFound();
-            else
-                return View(message);
+
+            return View(message);
         }
 
         [HttpGet]
@@ -34,10 +35,8 @@ namespace Homework01.Controllers
             Message message = Messages.Find(m => m.Id == id);
             if (message == null)
                 return HttpNotFound();
-            else
-            {
-                return View(message);
-            }
+
+            return View(message);
         }
 
         [HttpPost]
@@ -46,11 +45,9 @@ namespace Homework01.Controllers
             Message message = Messages.Find(m => m.Id == id);
             if (message == null)
                 return HttpNotFound();
-            else
-            {
-                Messages.Remove(message);
-                return RedirectToAction("Index");
-            }
+
+            Messages.Remove(message);
+            return RedirectToAction("Index");
         }
 
         [HttpGet]
@@ -72,9 +69,29 @@ namespace Homework01.Controllers
         }
 
         [HttpGet]
-        public ActionResult Edit()
+        public ActionResult Edit(int? id)
         {
-            return HttpNotFound();
+            Message message = Messages.Find(m => m.Id == id);
+            if (message == null)
+                return HttpNotFound();
+
+            return View(message);
+        }
+
+        [HttpPost]
+        public ActionResult Edit(Message message)
+        {
+            Message messageFromTheList = Messages.Find(m => m.Id == message.Id);
+            if (message == null)
+                return HttpNotFound();
+
+            messageFromTheList.MessageContent = message.MessageContent;
+            messageFromTheList.PostType = message.PostType;
+            messageFromTheList.Priority = message.Priority;
+            messageFromTheList.IsSticky = message.IsSticky;
+            messageFromTheList.TimeOfPosting = DateTime.Now.Date;
+
+            return RedirectToAction("Index");
         }
     }
 }
